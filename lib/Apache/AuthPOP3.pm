@@ -3,14 +3,14 @@ package Apache::AuthPOP3;
 use warnings;
 use strict;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use constant MP2 => (exists $ENV{MOD_PERL_API_VERSION} and 
                      $ENV{MOD_PERL_API_VERSION} >= 2);
 
 BEGIN {
   if ($ENV{MOD_PERL}) {
-    my @constants = qw(OK DECLINED HTTP_UNAUTHORIZED());
+    my @constants = qw(OK DECLINED HTTP_UNAUTHORIZED);
     if (MP2) {
       require Apache2::Access;      # for note_basic_auth_failure, get_basic_auth_pw, and requires
       require Apache2::RequestUtil; # for push_handlers, and dir_config
